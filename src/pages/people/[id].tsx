@@ -1,13 +1,15 @@
 import { fetchposts, singlefetchrq } from '@/utils/api'
-import { posts } from '@/utils/types'
+import { posts, todo } from '@/utils/types'
 import { Card, CardBody, Text } from '@chakra-ui/react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import {CheckCircleIcon} from '@chakra-ui/icons'
 import React from 'react'
 import { MinusIcon } from '@chakra-ui/icons/dist/Minus'
 import { WarningTwoIcon } from '@chakra-ui/icons/dist/WarningTwo'
-
-const Singlepeoplepage = ({data}:posts[]) => {
+interface tododata{
+    data:todo[]
+}
+const Singlepeoplepage = ({data}:tododata) => {
     console.log(data)
   return (
     <div style={{display:"block",margin:"auto"}}>
@@ -16,10 +18,10 @@ const Singlepeoplepage = ({data}:posts[]) => {
 <h1 style={{margin:"auto",fontSize:"30px",textAlign:"center"}}>Todo Data</h1>
 <div style={{display:"block",margin:"auto",width:"40%",height:"50px"}}>
 
-{data.map((item:posts)=>{
+{data.map((item:todo)=>{
     
 
-return <div style={{backgroundColor:"white",marginTop:"10px"}} >
+return <div key={item.id} style={{backgroundColor:"white",marginTop:"10px"}} >
 
 <Card bgColor={"white"} color="black">
   <CardBody >

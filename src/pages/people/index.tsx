@@ -2,7 +2,12 @@ import PeopleCard from '@/components/Peoplecard'
 import { posts } from '@/utils/types'
 import React from 'react'
 
-const people = ({posts}:posts[]) => {
+
+
+interface postsdata{
+  posts:posts[]
+}
+const people = ({posts}:postsdata) => {
   // console.log(posts)
   return (
     <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",backgroundColor:"white"}}>
